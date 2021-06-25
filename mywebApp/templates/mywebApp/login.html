@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="page-section about-heading">
+        <div class="container">
+            <div class="about-heading-content">
+                <div class="row">
+                    <div class="col-lg-10 col-xl-9 mx-auto">
+                        <section class="login-clean">
+                            <form action="login" method="post">
+                                {% csrf_token %}
+                                <h2 class="visually-hidden">Login Form</h2>
+                                <div class="illustration"><i class="typcn typcn-code"></i></div>
+                                <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username"></div> 
+                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div><a class="forgot" href="/signup">Don't have an account?</a>
+                                {% for message in messages %}
+                                    <span style="text-align: center; display: block;" class="mt-2">{{ message }}</span>
+                                {% endfor %}
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+    

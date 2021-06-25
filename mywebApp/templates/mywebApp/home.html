@@ -1,18 +1,28 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1 style="text-align: center;">Hello {{name}}!</h1>
-    <img style="margin: 0 auto; display: block;" src="{{profileIMG}}" alt="" />
-    <p style="text-align: center;">This website was written using Django framework!</p>
-    
-    {% block content %}{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro"><img class="img-fluid intro-img mb-3 mb-lg-0 rounded" src="{% static 'img/intro.jpg' %}">
+            <div class="text-center intro-text p-5 rounded bg-faded">
+                <h2 class="section-heading mb-4"><span class="section-heading-upper">Fresh Coffee</span><span class="section-heading-lower">Worth Drinking</span></h2>
+                <p class="mb-3">Every cup of our coffee will keep you programming for hours straight! There is no longer a need to sleep while drinking our product. Deadline in 3 hours? Drink our coffee.</p>
+                <div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl" role="button" href="#">Visit Us Today!</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="text-center cta-inner rounded">
+                    <h2 class="section-heading mb-4"><span class="section-heading-upper">Our Promise</span><span class="section-heading-lower">To You</span></h2>
+                    <p class="mb-0">When you walk into our shop to start or end your day, we are dedicated to providing you with more coffee than you could ever drink, a welcoming atmosphere, and above all else, excellent coffee made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="page-section about-heading">
+        <div class="container"><img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'img/about.jpg' %}">
+            <div class="about-heading-content">
+                <div class="row">
+                    <div class="col-lg-10 col-xl-9 mx-auto">
+                        <div class="bg-faded rounded p-5">
+                            <h2 class="section-heading mb-4"><span class="section-heading-upper">Strong Coffee, Better Code</span><span class="section-heading-lower">&nbsp;{About Our Cafe}</span></h2>
+                            <p>Founded in 2019 by the legendary developer Logan Johnson, our establishment has been serving up quality coffee sourced from all over the world. We are absolutely obsessed with finding new kinds of coffee, so that you do not have to travel the world to find it.</p>
+                            <p class="mb-0"><span>We guaruntee that you will love every sip while writing your next 14,000 line project or your next facebook project. Need a better UI? try our quality "UI Coffee Expresso" drink! Need a quicker day? Try our quality "It isn't just HTML" drink!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

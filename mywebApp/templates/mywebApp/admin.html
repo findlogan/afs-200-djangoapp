@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Coffeecode</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i">
+    <link rel="stylesheet" href="{% static 'fonts/typicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+</head>
+
+<body>
+    <section class="contact-clean vh-100">
+        <h1 class="text-center font-monospace">Welcome back, {{ user.username }}!</h1>
+        <form action="userpanel" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 class="text-center">Add New Product</h2>
+            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Name of product"></div>
+            <div class="mb-3"><input class="form-control" type="file" name="imgURL"></div>
+            <div class="mb-3"><textarea class="form-control" name="desc" placeholder="Description of product" rows="14"></textarea></div>
+            <div class="mb-3 mt-5"><button class="btn btn-primary mx-auto d-block mt-3" type="submit">Submit new product</button></div>
+        </form><a class="btn btn-secondary mx-auto d-block mt-3" style="max-width: 300px" href="/">Return to site</a>
+        </form><a class="btn btn-primary mx-auto d-block mt-3" style="max-width: 300px" href="/logout">Logout</a>
+
+        <h1 class="text-center mt-5">Current Products:</h1>
+        <div class="card-group">
+            {% for product in products %}
+            <div class="card"><img class="card-img-top w-100 d-block">
+                <div class="card-body">
+                    <h4 class="card-title">{{product.name}}</h4>
+                    <img src="{{product.imgURL.url}}" style="display: block; max-height: 400px; margin: 0 auto; " alt=""/>
+                    <p class="card-text">{{product.desc}}</p><a class="btn btn-danger" href="/delete/{{product.id}}" type="button">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.min.js' %}"></script>
+</body>
+
+</html>
